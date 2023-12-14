@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout/index}"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" th:href="@{/css/style.css} " >
+</head>
+<body>
+<!--<div th:object="${student}">-->
+<!--&lt;!&ndash;    <h1>xin chaof <spa th:text="${name}"></spa></h1>&ndash;&gt;-->
+<!--<h1> ho <span th:text="${student.lastName}"></span></h1>-->
+<!--<h1> ten <span th:text="${student.firstName}"></span></h1>-->
+<!--</div>-->
+
+<!--<div th:each="student : ${students}">-->
+<!--    &lt;!&ndash;    <h1>xin chaof <spa th:text="${name}"></spa></h1>&ndash;&gt;-->
+<!--    <h1> hoj vaf ten :-->
+<!--        <span th:text="${student.lastName}"></span>-->
+<!--        <span th:text="${student.firstName}"> </span>-->
+<!--    </h1>-->
+<!--</div>-->
+
+<div layout:fragment="content">
+    <a th:href="@{/view/add-student}">thêm sinh viên
+    </a>
+    <table>
+        <tr>
+            <th>name</th>
+            <th> city</th>
+            <th> district</th>
+        </tr>
+        <tr th:each="student : ${students}">
+            <td>
+                <span th:text="${student.getName()}"> </span></td>
+            <td>
+                <span th:text="${student.city}"></span>
+            </td>
+            <td>
+                <span th:text="${student.district}"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
